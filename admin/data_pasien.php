@@ -1,7 +1,7 @@
 <?php
 include ('partials/header.php');
 include ('../db/koneksi.php');
-$queryselect = "SELECT * FROM user";
+$queryselect = " SELECT *FROM user";
 $resultselect = mysqli_query($koneksi, $queryselect);
 ?>
 

@@ -1,7 +1,7 @@
 <?php
 include ('partials/header.php');
 include ('../db/koneksi.php');
-$queryselect = " SELECT *FROM transaksi LEFT JOIN dtl_transaksi_obat ON transaksi.transaksi_id = dtl_transaksi_obat.dtl_obat_transaksi_id LEFT JOIN obat ON dtl_transaksi_obat.dtl_obat_obat_id = obat.obat_id LEFT JOIN dtl_transaksi_tindakan ON transaksi.transaksi_id = dtl_transaksi_tindakan.dtl_tindakan_transaksi_id LEFT JOIN tindakan ON tindakan.tindakan_id = dtl_transaksi_tindakan.dtl_tindakan_tindakan_id LEFT JOIN pegawai ON pegawai.pegawai_id = transaksi.transaksi_pegawai_id LEFT JOIN user ON user.user_id = transaksi.transaksi_user_id";
+$queryselect = " SELECT *FROM transaksi LEFT JOIN pegawai ON pegawai.pegawai_id = transaksi.transaksi_pegawai_id LEFT JOIN user ON user.user_id = transaksi.transaksi_user_id";
 $resultselect = mysqli_query($koneksi, $queryselect);
 ?>
 
@@ -54,6 +54,7 @@ $resultselect = mysqli_query($koneksi, $queryselect);
 							<th style="text-align: center;">Subtotal</th>
 							<th style="text-align: center;">Total</th>
 							<th style="text-align: center;" colspan="2">Aksi</th>
+							<th style="text-align: center;">Hapus</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -66,16 +67,17 @@ $resultselect = mysqli_query($koneksi, $queryselect);
 								<td><?php echo $row['user_nama']; ?></td>
 								<td><?php echo $row['transaksi_poli']; ?></td>
 								<td><?php echo $row['pegawai_nama']; ?></td>
-								<td><?php echo number_format($row['transaksi_deposit']); ?></td>
-								<td><?php echo number_format($row['transaksi_subtotal']); ?></td>
-								<td><?php echo number_format($row['transaksi_total']); ?></td>
-								<td style="text-align: center;"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalUbahPelayanan<?php echo $row['transaksi_id']; ?>"><i class="feather icon-edit"></i></button></td>
+								<td>Rp. <?php echo number_format($row['transaksi_deposit']); ?></td>
+								<td>Rp. <?php echo number_format($row['transaksi_subtotal']); ?></td>
+								<td>Rp. <?php 
+								$total = $row['transaksi_subtotal'] - $row['transaksi_deposit'];
+								echo number_format($total);
+								 ?></td>
+
+								<td style="text-align: center;"><a data-toggle="tooltip" data-placement="top" title="Tindakan" class="btn btn-success" href="pelayanan_tindakan.php?transaksi_id=<?php echo $row['transaksi_id']; ?>" role="button"><i class="feather icon-activity"></i></a></td>
+								<td style="text-align: center;"><a data-toggle="tooltip" data-placement="top" title="Obat" class="btn btn-warning" href="pelayanan_obat.php?transaksi_id=<?php echo $row['transaksi_id']; ?>" role="button"><i class="feather icon-slack"></i></a></td>
 								<td style="text-align: center;"><a onclick="return confirm('Data yang dihapus tidak dapat dikembalikan. Yakin untuk melanjutkan?')" href="delete_pelayanan.php?transaksi_id=<?php echo $row['transaksi_id']; ?>"><button class="btn btn-danger"><i class="feather icon-trash"></i></button></a></a></td>
 							</tr>
-							<!--
-							<?php include("update_pelayanan.php"); ?>
-						-->
-
 						<?php } ?>
 					</tbody>
 				</table>

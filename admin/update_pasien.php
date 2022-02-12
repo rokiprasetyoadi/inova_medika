@@ -71,7 +71,7 @@ if (isset($_POST['buttonUbah'])) {
           <label for="Jenis Kelamin" class="col-sm-3 col-form-label">Jenis Kelamin</label>
           <div class="col-sm-8">
           <div class="controls">
-              <select name="user_jenkel" required>
+              <select name="user_jenkel" class="form-control" required>
                 <option value="<?php echo $rowselectedit['user_jenkel'] ?>"><?php echo $rowselectedit['user_jenkel'] ?></option>
                 <option value="">--> Ubah Jenis Kelamin <--</option>
                 <option value="L">Laki-laki</option>
@@ -102,13 +102,13 @@ if (isset($_POST['buttonUbah'])) {
           <label for="nama" class="col-sm-3 col-form-label">Kecamatan</label>
           <div class="col-sm-8">
             <div class="controls">
-              <select name="user_wilayah_id">
+              <select name="user_wilayah_id" class="form-control">
                 <option value="<?php echo $rowselectedit['user_wilayah_id'] ?>"><?php echo $rowselectedit['wilayah_kecamatan'] ?></option>
                 <option value="">--> Ubah Kecamatan <--</option>
                 <?php
-                $queryselect = " SELECT * FROM wilayah";
-                $resultselect = mysqli_query($koneksi, $queryselect);
-                  while ($row = mysqli_fetch_array($resultselect)){
+                $queryw = " SELECT * FROM wilayah";
+                $result = mysqli_query($koneksi, $queryw);
+                  while ($row = mysqli_fetch_array($result)){
                 ?>
                 <option value="<?php echo $row['wilayah_id']; ?>"><?php echo $row['wilayah_kecamatan']; ?></option>
               <?php } ?>

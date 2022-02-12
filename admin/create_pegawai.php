@@ -18,7 +18,7 @@
             <?php
           }else{
             $queryinsert = "INSERT INTO pegawai (pegawai_nama, pegawai_spesialis, pegawai_telp, pegawai_email, pegawai_username, pegawai_password, pegawai_created_by)
-            VALUES ('$pegawai_nama','$pegawai_spesialis','$pegawai_telp','pegawai_email','$pegawai_username','$pegawai_password','$pegawai_created_by');";
+            VALUES ('$pegawai_nama','$pegawai_spesialis','$pegawai_telp','$pegawai_email','$pegawai_username','$pegawai_password','$pegawai_created_by');";
 
             if (mysqli_query($koneksi, $queryinsert)) {
               ?>

@@ -85,6 +85,11 @@
   $('#myInput').trigger('focus')
 })
 </script>
+<script type="text/javascript">
+    $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
 
 </body>
 

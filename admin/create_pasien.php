@@ -69,7 +69,7 @@
                   <label for="nama" class="col-sm-3 col-form-label">Jenis Kelamin</label>
                   <div class="col-sm-8">
                     <div class="controls">
-                      <select name="user_jenkel">
+                      <select name="user_jenkel" class="form-control">
                         <option value="L">Laki-laki</option>
                         <option value="P">Perempuan</option>
                       </select>
@@ -98,14 +98,14 @@
                   <label for="nama" class="col-sm-3 col-form-label">Kecamatan</label>
                   <div class="col-sm-8">
                     <div class="controls">
-                      <select name="user_wilayah_id">
+                      <select name="user_wilayah_id" class="form-control">
                         <?php
-                        $queryselect = " SELECT * FROM wilayah";
-                        $resultselect = mysqli_query($koneksi, $queryselect);
-                          while ($row = mysqli_fetch_array($resultselect)){
-                        ?>
-                        <option value="<?php echo $row['wilayah_id']; ?>"><?php echo $row['wilayah_kecamatan']; ?></option>
-                      <?php } ?>
+                        $queryw = " SELECT * FROM wilayah";
+                        $resultselect = mysqli_query($koneksi, $queryw);
+                        while ($w = mysqli_fetch_array($resultselect)){
+                          ?>
+                          <option value="<?php echo $w['wilayah_id']; ?>"><?php echo $w['wilayah_kecamatan']; ?></option>
+                        <?php } ?>
                       </select>
                     </div>
                   </div>

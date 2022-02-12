@@ -56,7 +56,7 @@ if (isset($_POST['buttonUbah'])) {
           <label for="id_pp" class="col-sm-3 col-form-label">Pasien</label>
           <div class="col-sm-8">
             <div class="controls">
-              <select name="pp_user_id">
+              <select name="pp_user_id" class="form-control">
                 <option value="<?php echo $rowselectedit['pp_user_id'] ?>"><?php echo $rowselectedit['user_nama'] ?></option>
                 <option value="">--> Ubah Pasien <--</option>
                 <?php
@@ -86,7 +86,7 @@ if (isset($_POST['buttonUbah'])) {
           <label for="nama" class="col-sm-3 col-form-label">Status Pesanan</label>
           <div class="col-sm-8">
             <div class="controls">
-              <select name="pp_status" required>
+              <select name="pp_status" required class="form-control">
                 <option value="<?php echo $rowselectedit['pp_status'] ?>"><?php echo $rowselectedit['pp_status'] ?></option>
                 <option value="">--> Ubah Status <--</option>
                 <option value="Pendaftaran Terkirim">Pendaftaran Terkirim</option>
@@ -113,7 +113,7 @@ if (isset($_POST['buttonUbah'])) {
           <label for="nama" class="col-sm-3 col-form-label">Dokter</label>
           <div class="col-sm-8">
             <div class="controls">
-              <select name="pp_pegawai_id">
+              <select name="pp_pegawai_id" class="form-control">
                 <option value="<?php echo $rowselectedit['pp_pegawai_id'] ?>"><?php echo $rowselectedit['pegawai_nama'] ?> | <?php echo $rowselectedit['pegawai_spesialis'] ?></option>
                 <option value="">--> Ubah Dokter <--</option>
                 <?php

@@ -57,7 +57,7 @@
                   <label for="nama" class="col-sm-3 col-form-label">Pasien</label>
                   <div class="col-sm-8">
                     <div class="controls">
-                      <select name="pp_user_id">
+                      <select name="pp_user_id" class="form-control">
                         <?php
                         $queryselect = " SELECT * FROM user";
                         $resultselect = mysqli_query($koneksi, $queryselect);
@@ -85,7 +85,7 @@
                   <label for="nama" class="col-sm-3 col-form-label">Status Pesanan</label>
                   <div class="col-sm-8">
                     <div class="controls">
-                      <select name="pp_status" required>
+                      <select name="pp_status" required class="form-control">
                         <option value="Pendaftaran Terkirim">Pendaftaran Terkirim</option>
                         <option value="Pendaftaran Diterima">Pendaftaran Diterima</option>
                         <option value="Pendaftaran Dibatalkan">Pendaftaran Dibatalkan</option>
@@ -110,7 +110,7 @@
                   <label for="nama" class="col-sm-3 col-form-label">Dokter</label>
                   <div class="col-sm-8">
                     <div class="controls">
-                      <select name="pp_pegawai_id">
+                      <select name="pp_pegawai_id" class="form-control">
                         <?php
                           $query = " SELECT * FROM pegawai";
                           $results = mysqli_query($koneksi, $query);
